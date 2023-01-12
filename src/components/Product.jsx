@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addCart } from "../redux/action";
+import { addToCart } from "../redux/action";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
- 
+import Footer from "./Footer";
 
 const Product = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const Product = () => {
 
   const dispatch = useDispatch();
   const addProduct = (product) => {
-    dispatch(addCart(product));
+    dispatch(addToCart(product));
   };
 
   useEffect(() => {
@@ -62,6 +62,7 @@ const Product = () => {
             Go to Cart
           </Link>
         </div>
+        <Footer/>
       </>
     );
   };

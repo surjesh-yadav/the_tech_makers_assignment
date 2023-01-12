@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-import { addCart } from "../redux/action";
+import { addToCart } from "../redux/action";
 import { useDispatch } from "react-redux";
 
 const Products = () => {
@@ -12,7 +12,7 @@ const Products = () => {
 
   const dispatch = useDispatch();
   const addProduct = (product) => {
-    dispatch(addCart(product));
+    dispatch(addToCart(product));
   };
 
   useEffect(() => {
