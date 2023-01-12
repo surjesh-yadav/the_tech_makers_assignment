@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-const Nav = () => {
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+const Navbar = () => {
+  const state = useSelector((state) => state.handleCart);
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm">
-        <div class="container">
-          <Link class="navbar-brand fw-bold fs-4" to="/">
-            TheTechMakers
-          </Link>
+      <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+        <div className="container">
+          <NavLink className="navbar-brand fw-bold fs-4" to="/">
+          TheTechMakers
+          </NavLink>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -17,50 +20,42 @@ const Nav = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to="/">
                   Home
-                </Link>
+                </NavLink>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/products">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/products">
                   Products
-                </Link>
+                </NavLink>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/about">
-                  About us
-                </Link>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/about">
+                  About
+                </NavLink>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/contact">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/contact">
                   Contact
-                </Link>
+                </NavLink>
               </li>
             </ul>
-            <div className="button">
-              <Link to="/login" className="btn btn-outline-dark">
-                <i className="fa fa-shoping-cart"> Login </i>
-              </Link>
-              <Link to="/register" className="btn btn-outline-dark">
-                <i className="fa fa-shoping-cart"> Register </i>
-              </Link>
-              <Link to="/cart" className="btn btn-outline-dark">
-                <i class="fa fa-shopping-cart" aria-hidden="true">
-                  Cart
-                </i>
-              </Link>
+            <div className="buttons">
+              <NavLink to="/cart" className="btn btn-outline-dark ms-2">
+                <i className="fa fa-shopping-cart me-1"></i> Cart (
+                {state.length})
+              </NavLink>
             </div>
           </div>
         </div>
       </nav>
-      {/* <Carousel/> */}
     </div>
   );
 };
 
-export default Nav;
+export default Navbar;
