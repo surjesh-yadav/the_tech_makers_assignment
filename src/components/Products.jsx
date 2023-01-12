@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -75,13 +77,20 @@ const Products = () => {
                   />
                   <div class="card-body">
                     <h5 class="card-title mb-0">
-                      {" "}
                       {product.title.substring(0, 12)}{" "}
                     </h5>
                     <h6 class="card-text">₹{product.price}</h6>
-                    <Button variant="info" size="lg">
-                      Add to Cart{" "}
-                    </Button>
+
+                    <Link
+                      to={`/product/${product.id}`}
+                      type="button"
+                      className="btn btn-primary btn-sm mr-1 my-1"
+                    >
+                      View Product
+                    </Link>
+                    <button type="button" className="btn btn-warning btn-sm">
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>
