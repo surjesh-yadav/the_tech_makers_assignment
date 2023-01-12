@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
+import { addCart } from "../redux/action";
+import { useDispatch } from "react-redux";
+
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
   let componentMounted = true;
+
+  const dispatch = useDispatch();
+  const addProduct = (product) => {
+    dispatch(addCart(product));
+  };
 
   useEffect(() => {
     const getProducts = async () => {
@@ -61,7 +69,7 @@ const Products = () => {
         {filter.map((product) => {
           return (
             <>
-              <div className="col-md-3 mb-5">
+              <div className=" col-md-3 mb-5  ">
                 <div
                   class="card h-100 text-center p-4 shadow p-3 mb-5 bg-white rounded border-0"
                   key={product.id}
@@ -85,7 +93,11 @@ const Products = () => {
                     >
                       View Product
                     </Link>
-                    <button type="button" className="btn btn-warning btn-sm">
+                    <button
+                      onClick={() => addProduct(product)}
+                      type="button"
+                      className="btn btn-warning btn-sm"
+                    >
                       Add to Cart
                     </button>
                   </div>

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import Skeleton from "react-loading-skeleton";
+ 
 
 const Product = () => {
   const { id } = useParams();

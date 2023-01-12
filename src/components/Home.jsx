@@ -4,8 +4,8 @@ import Carousel from "react-bootstrap/Carousel";
 import Products from "./Products";
 const Home = () => {
   return (
-    <div>
-      <div className="hero">
+    <div className="container">
+      <div className="container">
         <Carousel>
           <Carousel.Item>
             <img
