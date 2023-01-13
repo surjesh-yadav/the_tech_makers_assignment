@@ -34,7 +34,7 @@ const Product = () => {
       </>
     );
   };
-  const ShowProduct = () => {
+  const ProductDetail = () => {
     return (
       <>
         <div className="col-md-6">
@@ -73,7 +73,7 @@ const Product = () => {
     <div>
       <div className="container py-5">
         <div className="row py-4">
-          {loading ? <Loading /> : <ShowProduct />}
+          {loading ? <Loading /> : <ProductDetail />}
         </div>
       </div>
     </div>
