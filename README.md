@@ -1,4 +1,4 @@
 # The Tech Makers
 
-Live - https://thetechmakers.netlify.app/
+Live - https://the-tech-makers-assignment.vercel.app/
 
