@@ -10,14 +10,14 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673590555/WomenChoice-Images/slider_20200711104752_5f09f4405bde6_rtqp2o.jpg"
+              src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673590432/WomenChoice-Images/diamond-city-demo-image-1200x470_z8zbpi.png"
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673590432/WomenChoice-Images/diamond-city-demo-image-1200x470_z8zbpi.png"
+              src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673590555/WomenChoice-Images/slider_20200711104752_5f09f4405bde6_rtqp2o.jpg"
               alt="Second slide"
             />
           </Carousel.Item>
