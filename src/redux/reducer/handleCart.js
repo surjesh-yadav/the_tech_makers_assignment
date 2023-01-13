@@ -14,6 +14,7 @@ const handleCart = (state = cart, action) => {
       const isExist = state.find((item) => item.id === product.id);
       if (isExist) {
         // Increase the Quantity
+        localStorage.setItem("cart", JSON.stringify(state));
         return state.map((item) =>
           item.id === product.id ? { ...item, qty: item.qty + 1 } : item
         );
@@ -31,6 +32,9 @@ const handleCart = (state = cart, action) => {
       }
 
     case DELETE_FROM_CART:
+      let newProduct = state.filter((pro) => pro.id !== product.id);
+      localStorage.setItem("cart", JSON.stringify(newProduct));
+
       const isExisted = state.find((item) => item.id === product.id);
       if (isExisted.qty === 1) {
         return state.filter((item) => item.id !== isExisted.id);

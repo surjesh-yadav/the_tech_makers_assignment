@@ -7,11 +7,12 @@ const Cart = () => {
     
   const state = useSelector((state) => state.handleCart);
   const dispatch = useDispatch();
-  const handleAdd = (item) => {
+  const increase = (item) => {
     dispatch(addToCart(item));
   };
-  const handleDel = (item) => {
+  const decrease = (item) => {
     dispatch(deleteFromCart(item));
+    alert(`Delete Successful`)
   };
 
   const emptyCart = () => {
@@ -28,10 +29,11 @@ const Cart = () => {
   const cartItems = (product) => {
     return (
       <>
-        <div className="px-4 my-5 bg-light rounded-3 py-5">
+        <div className="px-4 my-1 bg-light rounded-3 py-1">
           <div className="container py-4">
-            <div className="row justify-content-center">
-              <div className="col-md-4">
+
+            <div className="row justify-content-center ">
+              <div className="col-md-3">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -42,23 +44,24 @@ const Cart = () => {
               <div className="col-md-4">
                 <h3>{product.title}</h3>
                 <p className="lead fw-bold">
-                  {product.qty} X ₹{product.price} = ₹
+                   {product.qty} X ₹{product.price} = ₹
                   {product.qty * product.price}
                 </p>
                 <button
-                  className="btn btn-outline-dark me-4"
-                  onClick={() => handleDel(product)}
+                  className="btn btn-danger me-4"
+                  onClick={() => decrease(product)}
                 >
                   <i className="fa fa-minus"></i>
                 </button>
                 <button
-                  className="btn btn-outline-dark"
-                  onClick={() => handleAdd(product)}
+                  className="btn btn-success"
+                  onClick={() => increase(product)}
                 >
                   <i className="fa fa-plus"></i>
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </>
