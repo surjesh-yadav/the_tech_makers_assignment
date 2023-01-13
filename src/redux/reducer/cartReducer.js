@@ -6,7 +6,7 @@ if (localStorage.getItem("cart")) {
 } else {
   cart = [];
 }
-const handleCart = (state = cart, action) => {
+const cartReducer = (state = cart, action) => {
   const product = action.payload;
   switch (action.type) {
     case ADD_TO_CART:
@@ -49,4 +49,4 @@ const handleCart = (state = cart, action) => {
   }
 };
 
-export default handleCart;
+export default cartReducer;

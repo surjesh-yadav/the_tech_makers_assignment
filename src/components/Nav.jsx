@@ -1,16 +1,21 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const state = useSelector((state) => state.handleCart);
+  const state = useSelector((state) => state.cartReducer);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
-        <div className="container">
-          <NavLink className="navbar-brand fw-bold fs-4" to="/">
-            TheTechMakers
-          </NavLink>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+       
+        <div className="container-fluid">
+        <Link to='/'>
+        <img className="ms-5" style={{width:'50px', height:'50px'}}
+          src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673592130/WomenChoice-Images/Claudia_Paquet_1_j79jag.png"
+          alt="logo"
+        />
+        </Link>
+          
           <button
             className="navbar-toggler"
             type="button"
@@ -23,23 +28,32 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto ms-5 mb-2 mb-lg-0">
+            <ul className="navbar-nav mx-auto ms-5 mb-2  sm-mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/products">
+                <Link className="nav-link" to="/products">
                   Products
-                </NavLink>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/about"
+                >
+                  About us
+                </Link>
               </li>
             </ul>
             <div className="buttons">
-              <NavLink to="/cart" className="btn btn-outline-dark ms-2">
+              <Link to="/cart" className="btn btn-outline-light ms-2">
                 <i className="fa fa-shopping-cart me-1"></i> Cart (
                 {state.length})
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>

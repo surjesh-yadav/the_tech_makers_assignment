@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/action";
+import { addToCart } from "../redux/action/cartAction";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -28,7 +28,9 @@ const Product = () => {
   const Loading = () => {
     return (
       <>
-        <h1>Loading....</h1>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </>
     );
   };
@@ -62,7 +64,7 @@ const Product = () => {
             Go to Cart
           </Link>
         </div>
-        <Footer/>
+        <Footer />
       </>
     );
   };

@@ -1,10 +1,10 @@
 import { createStore } from "redux";
-import handleCart from "./reducer/handleCart";
+import cartReducer from "./reducer/cartReducer";
 import { combineReducers } from "redux";
 
 const rootReducers = combineReducers({
-    handleCart,
-})
+  cartReducer,
+});
 
 const store = createStore(rootReducers);
 

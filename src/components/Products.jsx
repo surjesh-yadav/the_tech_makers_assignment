@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-import { addToCart } from "../redux/action";
+import { addToCart } from "../redux/action/cartAction";
 import { useDispatch } from "react-redux";
 
 const Products = () => {
@@ -34,7 +34,13 @@ const Products = () => {
   }, []);
 
   const Loading = () => {
-    return <>Loading........</>;
+    return (
+      <>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </>
+    );
   };
 
   const filterProduct = (c) => {
