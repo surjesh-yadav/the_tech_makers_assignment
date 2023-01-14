@@ -36,8 +36,8 @@ const Products = () => {
   const Loading = () => {
     return (
       <>
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       </>
     );
@@ -75,22 +75,22 @@ const Products = () => {
         {filter.map((product) => {
           return (
             <>
-              <div className=" col-md-3 mb-5  ">
+              <div key={product.id} className=" col-md-3 mb-5  ">
                 <div
-                  class="card h-100 text-center p-4 shadow p-3 mb-5 bg-white rounded border-0"
                   key={product.id}
+                  className="card h-100 text-center p-4 shadow p-3 mb-5 bg-white rounded border-0"
                 >
                   <img
-                    class="card-img-top"
+                    className="card-img-top"
                     src={product.image}
                     alt={product.title}
                     height="250px"
                   />
-                  <div class="card-body">
-                    <h5 class="card-title mb-0">
+                  <div key={product.id} className="card-body">
+                    <h5 className="card-title mb-0">
                       {product.title.substring(0, 12)}{" "}
                     </h5>
-                    <h6 class="card-text">₹{product.price}</h6>
+                    <h6 className="card-text">₹{product.price}</h6>
 
                     <Link
                       to={`/products/${product.id}`}

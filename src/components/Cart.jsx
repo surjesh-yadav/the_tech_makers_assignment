@@ -11,7 +11,7 @@ const Cart = () => {
   };
   const decrease = (item) => {
     dispatch(deleteFromCart(item));
-    alert(`If You want to Delete Click "OK"`);
+    // alert(`If You want to Delete Click "OK"`);
   };
   const emptyCart = () => {
     return (

@@ -20,7 +20,6 @@ const cartReducer = (state = cart, action) => {
         );
       } else {
         const product = action.payload;
-        // localStorage.setItem("cart", JSON.stringify(state));
         return [
           ...state,
           {
@@ -31,9 +30,6 @@ const cartReducer = (state = cart, action) => {
       }
 
     case DELETE_FROM_CART:
-      let newProduct = state.filter((pro) => pro.id !== product.id);
-      // localStorage.setItem("cart", JSON.stringify(newProduct));
-
       const isExisted = state.find((item) => item.id === product.id);
       if (isExisted.qty === 1) {
         return state.filter((item) => item.id !== isExisted.id);

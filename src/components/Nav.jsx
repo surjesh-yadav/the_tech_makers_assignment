@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
-const Navbar = () => {
+const Navbar = ({callback}) => {
   const state = useSelector((state) => state.cartReducer);
-
+  
+  //Send State for APP(Parent) Component
+  callback(state);
   let updated = state;
   useMemo(() => {
     localStorage.setItem("cart", JSON.stringify(updated));
