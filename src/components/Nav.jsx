@@ -1,21 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import { useMemo } from "react";
 const Navbar = () => {
   const state = useSelector((state) => state.cartReducer);
+
+  let updated = state;
+  useMemo(() => {
+    localStorage.setItem("cart", JSON.stringify(updated));
+  }, [updated]);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-       
         <div className="container-fluid">
-        <Link to='/'>
-        <img className="ms-5" style={{width:'50px', height:'50px'}}
-          src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673592130/WomenChoice-Images/Claudia_Paquet_1_j79jag.png"
-          alt="logo"
-        />
-        </Link>
-          
+          <Link to="/">
+            <img
+              className="ms-5"
+              style={{ width: "50px", height: "50px" }}
+              src="https://res.cloudinary.com/dg8egpfp8/image/upload/v1673592130/WomenChoice-Images/Claudia_Paquet_1_j79jag.png"
+              alt="logo"
+            />
+          </Link>
+
           <button
             className="navbar-toggler"
             type="button"
